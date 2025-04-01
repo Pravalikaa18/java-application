@@ -37,32 +37,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Deploy to Kubernetes') {
-            steps {
-                script {
-                    sh "kubectl apply -f ${KUBE_DEPLOYMENT}"
-                    sh "kubectl apply -f ${KUBE_SERVICE}"
-                }
-            }
-        }
-
-        stage('Verify Deployment') {
-            steps {
-                script {
-                    sh "kubectl get pods"
-                    sh "kubectl get services"
-                }
-            }
-        }
-    }  // <-- This is the correct closing brace for stages
-
-    post {
-        success {
-            echo 'Deployment successful! 🎉'
-        }
-        failure {
-            echo 'Deployment failed! ❌'
-        }
     }
-} 
+}
+        
