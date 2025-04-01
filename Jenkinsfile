@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "<your-dockerhub-username>/helloworld:latest"
+        DOCKER_IMAGE = "pravalikaa18/helloworld:latest"
         KUBE_DEPLOYMENT = "deployment.yaml"
         KUBE_SERVICE = "service.yaml"
     }
@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/<your-github-username>/HelloWorld.git'
+                git branch: 'main', url: 'https://github.com/pravalikaa18/HelloWorld.git'
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
 
         stage('Push Docker Image to Docker Hub') {
             steps {
-                withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
+                withDockerRegistry([credentialsId: '98897e03-c137-4438-8da4-dd1f33b63fba']) {
                     sh "docker push ${DOCKER_IMAGE}"
                 }
             }
