@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git credentialsId: '8b36b4c0-735c-4c23-9d1c-df2e9be15024', branch: 'main', url: 'https://github.com/Pravalikaa18/HelloWorld.git'
+                git credentialsId: '8b36b4c0-735c-4c23-9d1c-df2e9be15024', branch: 'main', url: 'https://github.com/Pravalikaa18/java-application.git'
             }
         }
 
