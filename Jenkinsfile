@@ -33,9 +33,7 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 withDockerRegistry([credentialsId: '98897e03-c137-4438-8da4-dd1f33b63fba', url: 'https://index.docker.io/v1/']) {
-                sh "docker push ${DOCKER_IMAGE}"
-}
-
+                    sh "docker push ${DOCKER_IMAGE}"
                 }
             }
         }
@@ -57,7 +55,7 @@ pipeline {
                 }
             }
         }
-    }
+    }  // <-- This is the correct closing brace for stages
 
     post {
         success {
@@ -67,4 +65,4 @@ pipeline {
             echo 'Deployment failed! ❌'
         }
     }
-}
+} 
