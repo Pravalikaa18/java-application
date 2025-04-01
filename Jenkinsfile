@@ -10,14 +10,14 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/pravalikaa18/HelloWorld.git'
+                git branch: 'main', url: 'https://github.com/Pravalikaa18/HelloWorld.git'
             }
         }
 
         stage('Build Java Application') {
             steps {
                 script {
-                    sh 'javac HelloWorld.java'
+                    sh 'mvn clean package -DskipTests=true'
                 }
             }
         }
